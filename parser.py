@@ -8,10 +8,10 @@ class BasicLexer(Lexer):
     literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';' }
 
     # Define tokens
-    IF = r'JIKA'
-    THEN = r'MAKA'
-    ELSE = r'NAMUN_JIKA'
-    FOR = r'UNTUK'
+    IF = r'jika'
+    THEN = r'maka'
+    ELSE = r'namun_jika'
+    FOR = r'untuk'
     FUN = r'FUN'
     TO = r'TO'
     ARROW = r'->'
@@ -118,7 +118,7 @@ if __name__ == '__main__':
     env = {}
     while True:
         try:
-            text = input('basic > ')
+            text = input('parser > ')
         except EOFError:
             break
         if text:
