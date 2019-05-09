@@ -1,4 +1,5 @@
-import lexer
+import sly from lexer
+import sly from parser
 
 def main():
 
