@@ -1,8 +1,9 @@
 from sly import Parser
-import lexer
+
+import san_lexer
 
 class BasicParser(Parser):
-    tokens = BasicLexer.tokens
+    tokens = san_lexer.BasicLexer.tokens
 
     precedence = (
         ('left', '+', '-'),
@@ -79,21 +80,20 @@ class BasicParser(Parser):
     @_('NUMBER')
     def expr(self, p):
         return ('num', p.NUMBER)
-     
-     @_('PRINT expr')
+        
+    @_('PRINT expr')
     def expr(self, p):
         return ('print', p.expr)
 
 if __name__ == '__main__':
-    lexer = BasicLexer()
+    lexer = san_lexer.BasicLexer()
     parser = BasicParser()
     env = {}
     while True:
         try:
-            text = input('parser > ')
+            text = input('rhs > ')
         except EOFError:
             break
         if text:
             tree = parser.parse(lexer.tokenize(text))
             print(tree)
-           
