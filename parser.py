@@ -1,37 +1,5 @@
-from sly import Lexer
 from sly import Parser
- 
-class BasicLexer(Lexer):
-    tokens = { NAME, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
-    ignore = '\t '
-
-    literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';' }
-
-    # Define tokens
-    IF = r'jika'
-    THEN = r'maka'
-    ELSE = r'namun_jika'
-    FOR = r'untuk'
-    FUN = r'FUN'
-    TO = r'TO'
-    ARROW = r'->'
-    NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
-    STRING = r'\".*?\"'
-
-    EQEQ = r'=='
-
-    @_(r'\d+')
-    def NUMBER(self, t):
-        t.value = int(t.value)
-        return t
-
-    @_(r'#.*')
-    def COMMENT(self, t):
-        pass
-
-    @_(r'\n+')
-    def newline(self,t ):
-        self.lineno = t.value.count('\n')
+import lexer
 
 class BasicParser(Parser):
     tokens = BasicLexer.tokens
@@ -111,6 +79,10 @@ class BasicParser(Parser):
     @_('NUMBER')
     def expr(self, p):
         return ('num', p.NUMBER)
+     
+     @_('PRINT expr')
+    def expr(self, p):
+        return ('print', p.expr)
 
 if __name__ == '__main__':
     lexer = BasicLexer()
@@ -124,3 +96,4 @@ if __name__ == '__main__':
         if text:
             tree = parser.parse(lexer.tokenize(text))
             print(tree)
+           
