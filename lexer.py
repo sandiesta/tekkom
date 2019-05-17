@@ -1,5 +1,5 @@
 from sly import Lexer
-
+ 
 class BasicLexer(Lexer):
     tokens = { NAME, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
     ignore = '\t '
