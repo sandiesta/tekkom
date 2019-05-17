@@ -1,6 +1,6 @@
 from sly import Lexer
 from sly import Parser
-
+ 
 class BasicLexer(Lexer):
     tokens = { NAME, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
     ignore = '\t '
