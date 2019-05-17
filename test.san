@@ -1,2 +1,18 @@
-v umur = 17; 
-cetak umur;
+a=5
+b=4
+y="Benar"
+n="Tidak Benar"
+c="Apakah hasil dari 5+4 adalah 6?"
+
+cetak c
+
+jika a+b==6 maka cetak y namun_jika cetak n
+
+d="Hasil dari 5+4 adalah"
+cetak d
+cetak a+b
+
+z="Tulis angka 1 sampai 7"
+cetak z
+
+untuk i=1 ke 8 maka cetak i
