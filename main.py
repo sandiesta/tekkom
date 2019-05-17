@@ -1,12 +1,16 @@
-from sly import lexer
-from sly import parser
- 
-def main():
+import lexer
+import parser
+import interpreter
 
-    content = ""
-    with open('test.san', 'r') as file:
-        content = file.read()
+from sys import *
 
-    lex = lexer.lexer(content)
-    tokens = lex.tokenize()
-main()
+#DENGAN MASUKAN BAHASAKU.RHS
+lexer = lexer.BasicLexer()
+parser = parser.BasicParser()
+env = {}
+
+file = open(argv[1])
+text = file.readlines()
+for line in text:
+    tree = parser.parse(lexer.tokenize(line))
+    interpreter.BasicExecute(tree, env)
