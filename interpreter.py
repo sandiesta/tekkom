@@ -2,7 +2,7 @@ from sly import Lexer
 from sly import Parser
  
 class BasicLexer(Lexer):
-    tokens = { NAME, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
+    tokens = { NAME, PRINT, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
     ignore = '\t '
 
     literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';' }
@@ -10,10 +10,11 @@ class BasicLexer(Lexer):
     # Define tokens
     IF = r'jika'
     THEN = r'maka'
+    PRINT = r'cetak'
     ELSE = r'namun_jika'
     FOR = r'untuk'
-    FUN = r'FUN'
-    TO = r'TO'
+    FUN = r'fungsi'
+    TO = r'ke'
     ARROW = r'->'
     NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
     STRING = r'\".*?\"'
