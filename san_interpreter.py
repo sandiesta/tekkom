@@ -1,5 +1,5 @@
-import rhs_lexer
-import rhs_parser
+import san_lexer
+import san_parser
 
 class BasicExecute:
 
@@ -95,8 +95,8 @@ class BasicExecute:
 
 
 if __name__ == '__main__':
-    lexer = rhs_lexer.BasicLexer()
-    parser = rhs_parser.BasicParser()
+    lexer = san_lexer.BasicLexer()
+    parser = san_parser.BasicParser()
     env = {}
     while True:
         try:
