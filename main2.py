@@ -1,18 +1,18 @@
-import lexer
-import parser
-import interpreter
+import san_lexer
+import san_parser
+import san_interpreter
 
 from sys import *
 
 if __name__ == '__main__':
-  lexer = lexer.BasicLexer()
-  parser = parser.BasicParser()
+  lexer = san_lexer.BasicLexer()
+  parser = san_parser.BasicParser()
   env = {}
   while True:
     try:
       text = input('san > ')
-        except EOFError:
-    break
-      if text:
+    except EOFError:
+      break
+    if text:
         tree = parser.parse(lexer.tokenize(text))
-         interpreter.BasicExecute(tree, env)
+        san_interpreter.BasicExecute(tree, env)
