@@ -4,7 +4,6 @@ import interpreter
 
 from sys import *
 
-#DENGAN MASUKAN BAHASAKU.RHS
 lexer = lexer.BasicLexer()
 parser = parser.BasicParser()
 env = {}
