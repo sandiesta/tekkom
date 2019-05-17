@@ -1,18 +1,19 @@
 from sly import Lexer
  
 class BasicLexer(Lexer):
-    tokens = { NAME, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
+    tokens = { NAME, NUMBER, PRINT, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ }
     ignore = '\t '
 
     literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';' }
 
     # Define tokens
+    PRINT = r'cetak'
     IF = r'jika'
     THEN = r'maka'
     ELSE = r'namun_jika'
     FOR = r'untuk'
-    FUN = r'FUN'
-    TO = r'TO'
+    FUN = r'fungsi'
+    TO = r'ke'
     ARROW = r'->'
     NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
     STRING = r'\".*?\"'
